@@ -19,7 +19,7 @@
      "declarationMap": true,
     "baseUrl": ".",
      "paths": {
-      "react-global-modal": [ "src/component/index.ts" ]
+      "react-vite-library": [ "src/component/index.ts" ]
     },
     "typeRoots": [
       "node_modules/@types",

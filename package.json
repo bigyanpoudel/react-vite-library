@@ -1,6 +1,6 @@
 {
   "name": "react-vite-library",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -65,5 +65,16 @@
   "peerDependencies": {
     "react": "16.8.0 || >=17.x",
     "react-dom": "16.8.0 || >=17.x"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bigyanpoudel/react-vite-library"
+  },
+  "keywords": [],
+  "author": "bigyan poudel",
+  "bugs": {
+    "url": "https://github.com/bigyanpoudel/react-vite-library/issues"
+  },
+  "homepage": "https://github.com/bigyanpoudel/react-vite-library#readme",
+  "license": "MIT"
 }
