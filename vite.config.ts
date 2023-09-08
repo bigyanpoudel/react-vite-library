@@ -1,4 +1,4 @@
-import { resolve } from 'node:path'
+import path, { resolve } from 'node:path'
 
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
@@ -11,24 +11,32 @@ import * as packageJson from './package.json'
 export default defineConfig((configEnv) => ({
   plugins: [
     dts({
+      insertTypesEntry: true,
       include: ['src/component/'],
     }),
     react(),
     tsConfigPaths(),
     linterPlugin({
-      include: ['./src}/**/*.{ts,tsx}'],
+      include: ['./src/**/*.{ts,tsx}'],
       linters: [new EsLinter({ configEnv })],
     })
   ],
   build: {
     lib: {
-      entry: resolve('src', 'component/index.ts'),
+      entry: path.join('src', 'component/index.ts'),
+      
       name: 'ReactViteLibrary',
       formats: ['es', 'umd'],
       fileName: (format) => `react-vite-library.${format}.js`,
     },
     rollupOptions: {
       external: [...Object.keys(packageJson.peerDependencies)],
+      output: {
+        globals: {
+            react: 'React',
+            'react-dom': 'ReactDOM',
+        },
+    },
     },
   },
 }))
